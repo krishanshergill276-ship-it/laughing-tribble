@@ -1,0 +1,364 @@
+import time
+# you have to import time to allow you to delay the printing of the flashacards in the queue
+
+#from concurrent.interpreters import create 
+print("Welcome to Anki flashcards")
+print("Today you are going to study or create some flashcards!")
+# this is the title  screen to the main p program 
+count = 0 
+
+def intro(): 
+    ok = False
+    # ok is declared as false before the while loop so that the while loop can run effectively 
+    answer = ""
+    print("-Welcome to Anki Flashcards creator!- \n")
+    # this introduces the user to the flashcard deck and then ends the line so that the next print statement is printed on the line below 
+    print(" There is 2 key things you can do: Create or Practice Flashcards\n")
+    # this print statement adresses the user on what the purpose of the flashcards is 
+    while ok == False : 
+        print(" To create flashcards you will need to enter the information on the flashcard and the answer to that information ") # topic ?????, and create a queue functuon for flashcard runthrough    and make file reader and writer to tell If they have used the code before and then to skip the intro function?
+        # this print statement tells the user how they will use the program for creating flashcards 
+        print(" To run through flashcard decks you will be asked to choose a deck and then run through each flashcard 1 by 1 and ecounter each one again depending on how hard you find it\n")
+        # this tells the user how to use the program to run through flashcards 
+        answer = input(" Are you ok or do you want to recap the instruction, to recap enter R, else enter anything ")
+        # this input asks whether the user is ok with the instructions they have just seen and if they want to repeat seeing them again 
+        if answer.upper() == "R": 
+            # the if statement checks whether the user entered "R" and if they did then the while loop repeats again to allow the user to see the information again 
+            ok = False
+            # ok remains false so that while loop continues 
+        else : 
+            ok = True 
+            # ok changes to true so that while loop ends 
+
+def break(): 
+
+    
+
+
+
+
+
+
+
+decks = ["maths","english"]
+# these are just example titles to fill the array at the start of the program 
+def createflashcard(decks): 
+    # this creates a subroutine which is a function which means that the subroutine will return a value and not just run a set piece of code so that the variable can be used later on in the code 
+    flashcard = ""
+    answer = ""
+    topic = ""
+    additionalinfo =  ""
+    # topic = input("what topic are you making flashcards for today?\n")
+    flashcard = input("what would you wan to include in your flashcards ?\n") 
+    answer = input(" what is the answer to this flashcard\n")
+    for i in range (len(decks)): 
+        if topic == decks[i] : 
+            print("ok added to " +decks[i] +  ".\n")
+            #this function is used to allow the user to enter 
+    
+
+    
+        else : 
+            decks.append(topic)
+            print(" this has been added to " + topic + ".")
+            # this part of the code is used to append a existing deck of flashacrds if the topic that the user is creating flashcards already exists 
+   
+   
+# need to review !!!!! +  make a queue array 
+    return decks 
+def flashcards(totalflashcard): 
+    title = ""
+    for i in (len(decks)): 
+        # this for loop iterates through the code below the amount of times in the length of the array decks which in this case is how many values are stored in the array, it then iterates through with an increment of one 
+        decks[i] = title 
+        # decks is the array which stores all the names of the arrays and the names of the arrays are the title or topic of th flascards ee
+        
+        title[None]
+        # we create an array to store the title of the flashcard to add it when it is printed 
+        title.append(totalflashcard)
+        # we append the flashcards so that it is added to the array and doesn't edit the other values in there 
+
+        
+def organiseflashcards(flashcard, answer ): 
+    # the parameters are entered into the function to allow the function to use the data in these variables within the function, allowing its scope to include this function 
+    totalflashcard = flashcard + "," +  answer 
+    # this creates one whole variable of the entire flashcards so it can be stored in the deck and then be seperated back into flashcard and answer later so that it doesn't need to use a 2d array 
+    return totalflashcard
+
+# you return the variable so that the variable can be used elsewhere in the ptogram
+
+
+def deckrunthrough(decks): 
+    print ("you have " + str(len(decks)) + " decks to choose from today\n")
+    # this line of code displays how many variables there are stored in the array decks and then converts this integer to a string through casting so that is can be outputed to the user 
+    choice = input("which deck would you like to go through today?\n")
+    for i in range (len(decks)): 
+        # this runs through all the options of decks that the user can choose from so the program can correctly access the flashcards from their chosen deck
+        if choice.upper()== decks[i].upper(): 
+            # this selection is used to check whether the users input to the question what deck would they like to choose and see whether that answer is correspondent to a deck name in the deck array then that can be used to save what deck the user chose so it can be used later on in the program 
+            print("you are looking at "+ decks[i] +" today \n")
+            deckchoice = i 
+            # deckchoice stores an integer to then be used later on in different functions to call on the deck the user wants to run through through the choice of decks in the main decks array 
+        
+    return deckchoice
+
+
+
+
+def flashcardrunthrough(deckchoice, choice):
+    hardflashcard = ""
+    change = False 
+    # this variable is declared at the start to be False so that the while loop later on in the program can run effectively and so that the variable can then be changed later on in the code to trigger more pathways
+    previousdeck = ""
+    newdeck = ""
+    easy = 0 
+    # this function is made to allow the flashcards to be cycled through with a delay depending on how well they know the flashacrds to promote active recall
+    delay = 0 
+    # delay is initiated as an integer as the value stored in it will be only a whole number 
+    difficultvalid = False 
+    #this sets the variable to initiate it so that when it is used later on it doesn't have an error
+    order=  []
+    # this array is created to store the order that the flashcards will be shown depending on whether the user found them difficult or not 
+    # deckchoice is an integer which tells the array which deck to chooose depending on a number and then can later use this number to open the same deck of flashcards to use in later function 
+    for i in range (len(decks[deckchoice])):
+        #this runs through all the variables which are in the array that has been chosen
+        count += 1 
+        print ("flashcard: " + decks[deckchoice][i] + "\n")
+        # this outputs the information or question on the flashcard to the user 
+        while ready.upper()!= "Y": 
+
+            ready = input("Y/N for answer?")
+            # this question is asked to allow the user to determine when their answer is shown
+            if ready.upper() == "Y": 
+                # this puts the variable to upper to make sure it doesn't matter if the user enters lower or upper case 
+
+                print( "answer : " + decks[deckchoice][i] + "\n")
+                # i constantly changes however deckchoice is only one array meaning it will just run through the array that is chosen from the choice of arrays to run through 
+            else : 
+                print("ok still waiting ")
+        while difficultvalid == False : 
+            # a while loop is used to allow the user to be asked the question again if they do not answer with a valid response
+            
+            difficulty = input("Did you find that flashcard difficult? type : H/N/E (Hard,Normal,Easy)")
+            if difficulty.upper() == "H": 
+                hardflashcard = ""
+                hardflashcard = decks[deckchoice][i]
+                # this stores the flashcard that the user found the most difficult so that it can create seperate new deck automatically based off what the users hardest flashcards were for them 
+                hard = [ ]
+                # the flashcards are stored in an array so they will be easily to reach from one place 
+                hard.append(hardflashcard)
+                # i use the function is upper to allow any input to be valid such as a lower case H as well 
+                delay = 10
+                difficultvalid = True
+            elif difficulty.upper() == "N": 
+                difficultvalid = True
+                # the difficulty valid is set to true if the value entered corresponds to one if the inputs that the user is meant to enter 
+                delay = 30 
+            elif difficulty.upper() == "E": 
+                #the selection here is .upper so that even if the user enters a lower case letter it will not impact the logic of the code 
+                delay = 120
+                difficultvalid = True
+                easy += 1 
+                if easy > 10 : 
+                    previousdeck = choice 
+                    choice = input(" Wow! you are smashing it! Do you want to change flashcard decks now? From" + previousdeck+  "Y?N")
+                    if choice.upper() == "Y": 
+                        choice = input(" What deck do you want to choose? ")
+                        for i in range (len(decks)): 
+                            if decks[i].upper() == choice.upper(): 
+                                choice = int(choice)
+                                choice = i 
+                            else : 
+                                print(" That isn't a deck, sorry ")
+
+                    # check how this works with the for loop at the start of this function? 
+
+                    
+
+                    
+
+                # this delays the code by 120 seconds 
+                easy += 1 
+            else : 
+                difficultvalid = False 
+                # this makes sure that if the user doesn't enter a valid input the while loop iterates through again 
+    return count , hardflashcard, hard, change 
+# count is returned to allow it to be used later in the code (to display how many flashcards the user has got correct )
+        
+        
+
+
+        
+
+
+def filehandling(decks): 
+    # the paramater decks is used in this function to allow thr for loop to iterate through the code the correct number of times
+    file.open("flashcardecks.txt", "w")
+    # this opens the file flashcards and formats the file to allow 
+    for deck in decks: 
+        # this type of for loop means that the variable deck changes each iteration for the length of the variable decks which is an array 
+        file.write(deck + ",")
+        # this seperates the decks by commas to make sure they can be easily split when reading the file 
+    file.close()
+    # always close the file to make sure the next time you edit it it works correclty
+    
+    # you have to close the file to make sure that the code runs correctly 
+
+def readfile(): 
+    # this function is created seperately to allow the file to be read as many times as the user wants it to as the code can be reused 
+    file.open (flashcarddeckcks.txt, "r")
+    decks = file.read(). split(",")
+    # this piece of code is used to make the program split the lines of data stored in the file into an array so they can be easily accessed 
+    
+def redo(count): 
+    valid = False
+    reattempt = ""
+    print (" Well done on going through that flashcard deck! \n")
+    if count < 0 : 
+        # this selection statement runs if the variable count is less than 0 that means that the user has been through 0 flashcards 
+        print(" You haven't been through any flashcards what's happening?")
+    else: 
+
+        print (" You have been through " + count " flashcards, Well done !")
+    while valid == False: 
+        # a while loop is used here to allow error checking as it while iterate through the code in the while loop again if the while loop condition is still true 
+        reattempt = input("Would you like to reattempt some more flashcards, maybe a new set this time, or write some new ones? if yes then inpuy Y if not input N")
+        if reattempt.upper() == " Y ": 
+            repeat = True 
+            # this is the variable which is returned so that the program knows what the users next steps will be 
+            valid = True 
+            # this variable is used to exit the while loop as it opposes the condition within the while loop so this means that the while loop will break
+        elif reattempt.upper() == " N": 
+            repeat = False 
+            # repeat is set to false to exit the while loop as the while loop conditon is no longer true 
+            valid = True 
+        else : 
+            print(" You didnt enter Y or N ")
+            valid = False 
+            # the variable still agres with the while loops condition here so that the user can enter their value in again so there are no errors 
+    return repeat 
+    # the variable repeat can now be used later in the progam so the code knows whether to run the code agai or not
+
+
+    
+
+def runtheprogram(repeat): 
+    # this function is made to allow the repetition of the code without writing it out again 
+    create = ""
+    # this variable is declared so that it can be written to later on in the code 
+    if repeat == " Y" : 
+        # this is a nested loop which is used to see allow the condition check of 2 factors meaning someone can check 2 conditions or determine different routes within the program depending on what the condition satisfies 
+        create = input("do you want to create flashcards or carry on studying previous decks, create = C, study = S")
+        if create == "S": 
+            # this is the if loop which is inside the first selection statement which determines the programs path after a different input is compared and checked against certain characters
+           
+            filehandling(decks)
+            readfile()
+            flashcards(totalflashcard)
+            organiseflashcards(flashcard, answer )
+            deckrunthrough(decks)
+            flashcardrunthrough(deckchoice)
+            redo(count)
+            runtheprogram(repeat)
+        elif create == "C": 
+            # this if statment is run if the user wants to create new flashcards 
+            
+            createflashcard(decks)
+            filehandling(decks)
+            readfile()
+            # the order og these functions is used to allow the program to run without errors by allowing the program to read or write flashcards before running through them 
+            flashcards(totalflashcard)
+            organiseflashcards(flashcard, answer )
+            deckrunthrough(decks)
+            flashcardrunthrough(deckchoice)
+            redo(count)
+            runtheprogram(repeat)
+            # can you run funrcuton within tyhr same functuon? 
+    else : 
+        #this part of the code is only run if the user doesn't want to repeat the code which is dertermined by the paramater 
+        print(" Bye then, see you next time !\n")
+        # these 2 statements are the final outputs that the user will see from the code as they have chose to exit and end the program 
+        print("Hope you had a good session! \n")
+
+        # this is the final print statement that the user will see before ending the code 
+        exit()
+        # exit  function is used here to end the code immediately as the user has agreed to exit the program so no longer wants to use any of the programs functions
+        
+
+            
+
+        
+
+
+
+
+
+
+#running through the program : 
+
+user = ""
+# the variables have to be declared so there is a space to store them and the code makes no errors 
+read = ""
+user = input("Do you want to make new flashcards then continue or study previous decks that you have made Y = make, N = previous decks")
+# this code asks the user if they want to create new flashards so that if they don't want to it can skip the making flashcards function to reduce wasted time
+if user.upper() == "Y": 
+    # this is the selection if the user enters the characteer Y
+    intro()
+    # intro is only included in these functions runthrough as if the user wants to repeat the program they do not need the program explained to them again
+    createflashcard(decks)
+    filehandling(decks)
+    readfile()
+    # the order og these functions is used to allow the program to run without errors by allowing the program to read or write flashcards before running through them 
+    flashcards(totalflashcard)
+    organiseflashcards(flashcard, answer )
+    deckrunthrough(decks)
+    flashcardrunthrough(deckchoice, choice)
+    redo(count)
+    runtheprogram(repeat)
+
+    #to have improved the code here we could have made a function for running through the flashcards so that it can be reused if the user wants to run through flashcards again 
+
+
+
+
+
+
+
+
+elif user.upper() == "N": 
+    # this is the selection if the user enters the character N 
+  
+    filehandling(decks)
+    readfile()
+    flashcards(totalflashcard)
+    organiseflashcards(flashcard, answer )
+    deckrunthrough(decks)
+    flashcardrunthrough(deckchoice, choice )
+    redo(count)
+    runtheprogram(repeat)
+
+    
+    # this runs the function create flashcards and inputs the value of decks into the function to be used as a parameter
+
+# this is running the first key function so that the user can create their flashacards first 
+
+
+       
+
+
+
+
+    
+    
+        
+    
+    
+
+
+   
+
+
+
+    
+
+
